@@ -10,7 +10,7 @@ const whitelist = [
     'https://maps.googleapis.com/maps/api/mapsjs',
     'http://10.247.5.180:85',
     'file://*',
-    'https://*' 
+    'https://*',
     'https://smfind.10.247.5.116.nip.io/'
   ];
   
