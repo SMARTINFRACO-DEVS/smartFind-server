@@ -11,6 +11,7 @@ const whitelist = [
     'http://10.247.5.180:85',
     'file://*',
     'https://*' 
+    'https://smfind.10.247.5.116.nip.io/'
   ];
   
   export default whitelist;
