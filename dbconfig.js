@@ -15,7 +15,7 @@ const dbconfig = async () => {
     await mongoose.connect('mongodb://root:tFhh2hQwHwKiIB7pwFhNfbylsafgxcfWOF9Yd532vcq4juGZFez0sQ02pa7abSMb@197.253.124.146:5432/?directConnection=true');
     console.log('MongoDB connected');
   } catch (error) {
-    console.error('Error connecting to MongoDB:', error);
+    console.error('Error connecting to your MongoDB:', error);
     throw error;
   }
 
