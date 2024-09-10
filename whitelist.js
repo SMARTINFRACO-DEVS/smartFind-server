@@ -1,9 +1,10 @@
 // whitelist.js
 const whitelist = [
-    'http://localhost:3001',
-    'http://localhost:3000',
     'https://smartfind.smartinfraco.com',
-    'http://smartfind.smartinfraco.com',
+    'http://localhost:1234',
+    'http://localhost:3001',
+    // 'http://localhost:3000',
+    'http://s.smartinfraco.com',
     'https://www.google.com',
     'https://smartfullapp.vercel.app',
     'http://localhost:3500',

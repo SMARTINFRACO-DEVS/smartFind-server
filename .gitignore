@@ -131,4 +131,6 @@ dist
 
 # personal scripts command files
 .deploy
-.whitelist
+.divstation.json
+.file.convertor.js
+# .whitelist

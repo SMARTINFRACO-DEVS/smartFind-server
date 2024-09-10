@@ -5,7 +5,8 @@ import mongoose from "mongoose";
 const router = express.Router();
 const Basestation = mongoose.model('Basestation', BaseStationSchema);
 
-router.post('/', async (req, res) => {
+router.route('/')
+.post(async (req, res) => {
   try {
     const basestation = new Basestation(req.body);
     const savedBasestation = await basestation.save();
@@ -13,9 +14,7 @@ router.post('/', async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-});
-
-router.get('/', async (req, res) => {
+}).get(async (req, res) => {
   try {
     const basestations = await Basestation.find();
     res.json(basestations);
@@ -23,5 +22,6 @@ router.get('/', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
 
 export default router;

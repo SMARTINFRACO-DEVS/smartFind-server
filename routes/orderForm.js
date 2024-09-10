@@ -35,7 +35,7 @@ router.post('/submitForm', async (req, res) => {
       from: email,
       to: [
         'daniel.jojo-koomson@outlook.com', 
-        'christian.abbosey@smartinfraco.com', 
+        // 'christian.abbosey@smartinfraco.com', 
         'apps@smartinfraco.com', 
         'd.koomson@smartinfraco.com'
       ],
