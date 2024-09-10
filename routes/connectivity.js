@@ -17,10 +17,13 @@ router.post('/checkConnectivity', async (req, res) => {
     const basestations = await Basestation.find({}, 'Latitude Longitude');
     const divstations = await Divstation.find({}, 'Latitude Longitude');
     
+
     // Helper function to check connectivity
     const checkConnectivity = (stations, checkFunction, radius) => {
       for (const station of stations) {
         const { Latitude, Longitude } = station._doc;
+        const see = station._doc
+        console.log("Behind the scene: ",see)
         if (isNaN(Latitude) || isNaN(Longitude)) {
           console.log('Invalid coordinates');
           continue;
@@ -40,6 +43,7 @@ router.post('/checkConnectivity', async (req, res) => {
     // If no BaseStation connectivity, check Divstation Connectivity
     if (!responseData) {
       responseData = checkConnectivity(divstations, isWithinCircularDIV, 7);
+      console.log("Nothing found in basetation so checking Divs now")
     }
 
     if (responseData) {
@@ -50,6 +54,7 @@ router.post('/checkConnectivity', async (req, res) => {
     // No connectivity found
     const noConnectivityResponse = { message: 'No connectivity' };
     console.log('Sending response data:', noConnectivityResponse);
+    console.log('Nothing found in both stations');
     res.json(noConnectivityResponse);
   } catch (error) {
     console.error('Error querying stations:', error);
