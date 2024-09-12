@@ -14,7 +14,7 @@ const dbconfig = async () => {
   try {
     // mongodb://localhost:27017/geoLTE
     // await mongoose.connect(`mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@smart-server.fop0i76.mongodb.net/smartfind?ssl=true`, {
-    await mongoose.connect(`mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/${process.env.MONGODB_CLUSTER}?directConnection=true`, {
+    await mongoose.connect(`mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_HOST}:5433/${process.env.MONGODB_CLUSTER}?directConnection=true`, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
