@@ -3,13 +3,14 @@ import BaseStationSchema from '../model/BaseStationSchema.js';
 import DivSchema from '../model/DivSchema.js';
 import { isWithinRadius } from '../helpers/lte.middleware.js';
 import { isWithinCircularDIV } from '../helpers/div.middleware.js';
+import { validateCoordinates } from '../helpers/auth.middleware.js';
 import mongoose from "mongoose";
 
 const router = express.Router();
 const Basestation = mongoose.model('Basestation', BaseStationSchema);
 const Divstation = mongoose.model('Divstation', DivSchema);
 
-router.post('/checkConnectivity', async (req, res) => {
+router.post('/checkConnectivity', validateCoordinates, async (req, res) => {
   console.log('Received request data:', req.body);
   const { clientlatitude, clientlongitude } = req.body;
 

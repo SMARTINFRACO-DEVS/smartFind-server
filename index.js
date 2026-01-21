@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import dbconfig from './dbconfig.js';
 import whitelist from './whitelist.js';
+import { apiKeyAuth, rateLimiter, httpsRedirect, securityHeaders } from './helpers/auth.middleware.js';
 
 import basestationRoutes from './routes/basestations.js';
 import connectivityRoutes from './routes/connectivity.js';
@@ -33,8 +34,15 @@ dotenv.config();
       optionsSuccessStatus: 200,
     };
 
-    app.use(cors(corsOptions));
-    app.use(express.json());
+    // Security Middleware (applies to all routes)
+    app.use(httpsRedirect);                    // Redirect HTTP to HTTPS in production
+    app.use(securityHeaders);                  // Add security headers
+    app.use(cors(corsOptions));                // CORS whitelist
+    app.use(express.json());                   // Parse JSON payloads
+    app.use(rateLimiter);                      // Rate limiting per IP
+    
+    // API Key Authentication (applies to all API routes)
+    app.use('/api', apiKeyAuth);
 
     // Use routes
     app.use('/api/basestations', basestationRoutes);

@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "jest",
-    "start": "nodemon index.js",
+    "dev": "nodemon index.js",
     "convert": "node file.convertor.js"
   },
   "keywords": [],

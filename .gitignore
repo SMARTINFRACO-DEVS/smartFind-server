@@ -134,3 +134,10 @@ dist
 .divstation.json
 .file.convertor.js
 # .whitelist
+
+# Auto-generated documentation (AI-generated)
+SECURITY.md
+REFERENCE_GUIDE.md
+IMPLEMENTATION_SUMMARY.md
+FRONTEND_INTEGRATION.md
+QUICK_START.md
